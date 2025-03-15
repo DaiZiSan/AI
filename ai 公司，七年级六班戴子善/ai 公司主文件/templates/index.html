@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多智能体工作流系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 添加Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- 添加代码高亮 --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>多智能体工作流系统</h1>
+            </div>
+            <p class="subtitle">协调多个AI智能体共同完成创作任务</p>
+        </header>
+
+        <main>
+            <!-- 初始化面板 -->
+            <!-- 确保以下元素ID存在 -->
+            <div id="setup-panel" class="panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-rocket"></i> 项目初始化</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="form-group">
+                        <label for="user-request">请输入您的创作需求：</label>
+                        <textarea id="user-request" rows="5" placeholder="例如：我想创作一个关于太空探险的科幻故事，包含人工智能角色..."></textarea>
+                    </div>
+                    <button id="initialize-btn" class="btn primary">
+                        <i class="fas fa-play"></i> 开始创作
+                    </button>
+                </div>
+            </div>
+
+            <!-- 文件设置面板 -->
+            <div id="file-panel" class="panel hidden">
+                <div class="panel-header">
+                    <h2><i class="fas fa-file"></i> 本地文件设置</h2>
+                </div>
+                <div class="panel-content">
+                    <p class="info-text">请选择或输入CEO可以访问的本地文件路径（可选）</p>
+                    <div class="form-group file-input-group">
+                        <input type="text" id="file-path" placeholder="输入文件路径，多个路径用逗号分隔">
+                        <div class="button-group">
+                            <button id="browse-files-btn" class="btn secondary">
+                                <i class="fas fa-folder-open"></i> 浏览
+                            </button>
+                            <button id="add-file-btn" class="btn secondary">
+                                <i class="fas fa-plus"></i> 添加
+                            </button>
+                        </div>
+                    </div>
+                    <div id="file-list" class="file-list">
+                        <p class="empty-message">暂无文件</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="continue-btn" class="btn primary">
+                            <i class="fas fa-arrow-right"></i> 继续
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工作流面板 -->
+            <div id="workflow-panel" class="panel hidden">
+                <div class="workflow-header">
+                    <h2><i class="fas fa-project-diagram"></i> 工作流进度</h2>
+                    <div id="agent-switcher" class="agent-switcher">
+                        <!-- 智能体切换按钮将由JS动态生成 -->
+                    </div>
+                </div>
+
+                <div class="workflow-container">
+                    <div class="conversation-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-comments"></i> 对话记录</h3>
+                        </div>
+                        <div id="output-container" class="conversation-history"></div>
+                        <div class="user-input-area">
+                            <textarea id="user-input" placeholder="输入您的指示..."></textarea>
+                            <button id="send-btn" class="btn primary">
+                                <i class="fas fa-paper-plane"></i> 发送
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="side-panel">
+                        <div class="todo-panel">
+                            <div class="panel-header">
+                                <h3><i class="fas fa-tasks"></i> 待办事项</h3>
+                            </div>
+                            <div id="todo-list" class="todo-list">
+                                <p class="empty-message">暂无待办事项</p>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="panel-header">
+                                <h3><i class="fas fa-info-circle"></i> 项目信息</h3>
+                            </div>
+                            <div class="info-content">
+                                <p id="project-folder"><i class="fas fa-folder"></i> 项目文件夹：未创建</p>
+                                <p id="current-agent"><i class="fas fa-user-circle"></i> 当前智能体：分析官</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2023 多智能体工作流系统 | 七年级六班戴子善</p>
+        </footer>
+    </div>
+
+    <!-- 添加Markdown解析库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <!-- 添加代码高亮库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <!-- 主脚本 -->
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
